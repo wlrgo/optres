@@ -1,0 +1,8 @@
+github.com/stretchr/testify v1.12.1 h1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWDWE=
+github.com/stretchr/testify v1.12.1/go.mod h1:MDEgiDPPsNp5cuIrHPPCyornHKgEVbtFUmoNlxoYthg=
+github.com/wlrgo/option v1.0.0 h1:sGD0LWK/Sj/6gqFgHgH4xI4TkT3tH5sUt7hlTf8TqHk=
+github.com/wlrgo/option v1.0.0/go.mod h1:5ejMdkZfA74CwUCHJ5k2MKfFIAzB9TICdNSSA5ArrcM=
+github.com/wlrgo/result v1.0.0 h1:9A3SVeJap46IDLI2B3D4V8597/Sm2lVhUNy2JnMsTDI=
+github.com/wlrgo/result v1.0.0/go.mod h1:wEJ/rdqKHWEZ1U+ppes3F7THnY3yYvqmyWlrsZGgywo=
+go.yaml.in/yaml/v3 v3.0.5 h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=
+go.yaml.in/yaml/v3 v3.0.5/go.mod h1:HVTZu1O7/Vkt2N+BFy8Zza+lnLsABggaTM2ZpNIGuKg=
