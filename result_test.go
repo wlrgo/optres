@@ -1,6 +1,8 @@
 package optres_test
 
 import (
+	"errors"
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -97,4 +99,44 @@ func TestTransposeResultRoundtrip(t *testing.T) {
 		got := optres.TransposeOption(optres.TransposeResult(give))
 		assert.True(t, result.Equal(got, give))
 	}
+}
+
+func ExampleErr() {
+	x := result.Ok[int, error](2)
+	fmt.Println(optres.Err(x).IsNone())
+
+	y := result.Err[int](errors.New("late"))
+	fmt.Println(optres.Err(y).Unwrap())
+
+	// Output:
+	// true
+	// late
+}
+
+func ExampleOk() {
+	x := result.Ok[int, error](2)
+	fmt.Println(optres.Ok(x).UnwrapOr(-1))
+
+	y := result.Err[int](errors.New("late"))
+	fmt.Println(optres.Ok(y).UnwrapOr(-1))
+
+	// Output:
+	// 2
+	// -1
+}
+
+func ExampleTransposeResult() {
+	x := result.Ok[option.Option[int], error](option.Some(5))
+	fmt.Println(optres.TransposeResult(x).Unwrap().UnwrapOr(-1))
+
+	x = result.Ok[option.Option[int], error](option.None[int]())
+	fmt.Println(optres.TransposeResult(x).IsNone())
+
+	x = result.Err[option.Option[int]](errors.New("late"))
+	fmt.Println(optres.TransposeResult(x).Unwrap().IsErr())
+
+	// Output:
+	// 5
+	// true
+	// true
 }

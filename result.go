@@ -5,6 +5,8 @@ import (
 	"github.com/wlrgo/result"
 )
 
+// Err converts r to an [option.Option], mapping [result.Err] to [option.Some]
+// and [result.Ok] to [option.None]. The success value is discarded.
 func Err[T, E any](r result.Result[T, E]) option.Option[E] {
 	return result.MapOrElse(
 		r,
@@ -13,6 +15,8 @@ func Err[T, E any](r result.Result[T, E]) option.Option[E] {
 	)
 }
 
+// Ok converts r to an [option.Option], mapping [result.Ok] to [option.Some]
+// and [result.Err] to [option.None]. The error is discarded.
 func Ok[T, E any](r result.Result[T, E]) option.Option[T] {
 	return result.MapOrElse(
 		r,
@@ -21,6 +25,12 @@ func Ok[T, E any](r result.Result[T, E]) option.Option[T] {
 	)
 }
 
+// TransposeResult converts a [result.Result] of an [option.Option] into an
+// [option.Option] of a [result.Result].
+//
+// [result.Ok] of [option.None] maps to [option.None]. [result.Ok] of
+// [option.Some] and [result.Err] map to [option.Some] of [result.Ok] and
+// [option.Some] of [result.Err].
 func TransposeResult[T, E any](
 	r result.Result[option.Option[T], E],
 ) option.Option[result.Result[T, E]] {
