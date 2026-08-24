@@ -1,6 +1,6 @@
 # optres
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/wlrgo/optres.svg)](https://pkg.go.dev/github.com/wlrgo/optres)
+[![Go Reference](https://pkg.go.dev/badge/github.com/wlrgo/optres/v2.svg)](https://pkg.go.dev/github.com/wlrgo/optres/v2)
 [![CI](https://github.com/wlrgo/optres/actions/workflows/ci.yml/badge.svg)](https://github.com/wlrgo/optres/actions/workflows/ci.yml)
 [![Go Version](https://img.shields.io/github/go-mod/go-version/wlrgo/optres)](https://github.com/wlrgo/optres/blob/main/go.mod)
 [![Release](https://img.shields.io/github/v/release/wlrgo/optres)](https://github.com/wlrgo/optres/releases)
@@ -24,10 +24,10 @@ the glue.
 
 ## Install
 
-Requires Go 1.26.5 or later.
+Requires Go 1.27 or later.
 
 ```bash
-go get github.com/wlrgo/optres
+go get github.com/wlrgo/optres/v2
 ```
 
 ## Example
@@ -40,8 +40,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/wlrgo/option"
-	"github.com/wlrgo/optres"
+	"github.com/wlrgo/option/v2"
+	"github.com/wlrgo/optres/v2"
 )
 
 func main() {
@@ -57,7 +57,8 @@ func main() {
 
 `Ok` and `Err` convert a Result to an Option. They are not the `result.Ok`
 and `result.Err` constructors. `OkOr` is the Rust conversion to Result;
-`option.Option.OkOr` is the Go `(T, error)` helper.
+`option.Option.OkOr` is the Go `(T, error)` helper. Conversions stay
+package-level functions: they glue two independent packages.
 
 ## API
 
@@ -67,7 +68,7 @@ and `result.Err` constructors. `OkOr` is the Rust conversion to Result;
 | Result to Option | `Ok`, `Err` |
 | Transpose | `TransposeOption`, `TransposeResult` |
 
-See [pkg.go.dev/github.com/wlrgo/optres](https://pkg.go.dev/github.com/wlrgo/optres)
+See [pkg.go.dev/github.com/wlrgo/optres/v2](https://pkg.go.dev/github.com/wlrgo/optres/v2)
 for the full API and package contract.
 
 ## License
